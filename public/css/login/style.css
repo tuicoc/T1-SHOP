@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*padding và border sẽ được tính bên trong*/
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  background-color: #aac7fa;
+  background: linear-gradient(to right, #d1dbf1,#aac7fa);
+  display: flex;
+  /*Khi bạn sử dụng display: flex; trên thẻ <body>, nó biến phần tử <body>
+   thành một container linh hoạt (flex container), cho phép bạn sắp xếp các
+    phần tử con bên trong theo trục ngang hoặc dọc một cách dễ dàng.*/
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container{
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  /*width: 768px;: Cố định chiều rộng phần tử là 768px.
+max-width: 100%;: Giới hạn chiều rộng tối đa của phần tử không vượt quá 100% của phần tử cha.
+*/
+}
+
+.container p{
+  font-size: 14px;
+  line-height: 20px; /* mỗi dòng sẽ có height nhiêu đó */
+  letter-spacing: 0.3px;
+  margin: 20px 0;
+
+}
+
+.container span{
+  font-size: 12px;
+}
+
+.container a{
+  color: #333;
+  font-size: 13px;
+  text-decoration: none;
+  margin: 15px 0 10px; /* trên, phải trái, dưới*/
+}
+
+.container button{
+  background-color: #1a88c9;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent; /* Màu viền trong suốt, tức là viền vẫn có kích thước nhưng không nhìn thấy */
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.container button.hidden{ /*Chọn thẻ <button> bên trong .container có class là hidden*/
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.container form{
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+.container input{
+  background-color: #eee;
+  border: none;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none; /* lúc nhấn vào thanh nó ra cái vòng bao bên ngoài*/
+}
+
+.form-container{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out; /*Áp dụng hiệu ứng mượt mà cho tất cả các thay đổi CSS (all). Hiệu ứng kéo dài 0.6 giây*/
+}
+
+.sign-in{
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.container.active .sign-in{
+  transform: translateX(100%); /*  Di chuyển phần tử sang phải bằng 100% chiều rộng của chính nó */
+}
+
+.sign-up{
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.active .sign-up{
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s; /*Câu lệnh này áp dụng một animation có tên move với thời gian chạy 0.6 giây.*/
+}
+
+@keyframes move {
+  0%, 49.9%{  /* time 0 -> 49.9 thì ẩn*/
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100%{ /* time 50 -> 100 thì hiện*/
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.social-icons{
+  margin: 20px 0;
+}
+
+.social-icons a{
+  border: 1px solid #ccc;
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  width: 40px;
+  height: 40px;
+}
+
+.toggle-container{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
+}
+
+.container.active .toggle-container{
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle{
+  background-color: #287fc5;
+  height: 100%;
+  background: linear-gradient(to right, #34b1dc, #287fc5);
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle{
+  transform: translateX(50%);
+}
+
+.toggle-panel{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-left{
+  transform: translateX(-200%);
+}
+
+.container.active .toggle-left{
+  transform: translateX(0);
+}
+
+.toggle-right{
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.active .toggle-right{
+  transform: translateX(200%);
+}
+
+/*position: relative;*/
+/*Phần tử vẫn nằm ở vị trí ban đầu trong dòng chảy của tài liệu.*/
+
+/*position: absolute;*/
+/*Phần tử bị loại khỏi dòng chảy của tài liệu, không chiếm không gian như relative.*/
+/*Nó sẽ định vị dựa vào phần tử cha gần nhất có position: relative; absolute; fixed; sticky;.*/
+
+.alert {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert-danger {
+  background-color: #f8d7da; /* Màu nền đỏ nhạt */
+  color: #721c24; /* Màu chữ đỏ đậm */
+  border: 1px solid #f5c6cb;
+}
