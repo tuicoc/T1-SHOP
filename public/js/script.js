@@ -29,11 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const icon = submenu.querySelector("i");
 
     submenu.addEventListener("click", function (event) {
-        event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ `<a>`
-
-        dropdown.classList.toggle("active");
-        icon.classList.toggle("fa-angle-up");
-        icon.classList.toggle("fa-angle-down");
+        if (event.target === submenu || event.target.closest('.submenu > a')) {
+            event.preventDefault();
+            dropdown.classList.toggle("active");
+            icon.classList.toggle("fa-angle-up");
+            icon.classList.toggle("fa-angle-down");
+        }
     });
 });
 

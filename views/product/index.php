@@ -96,6 +96,16 @@ document.addEventListener('DOMContentLoaded', function() {
         searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
             var searchTerm = searchInput.value.trim();
+
+            // Nếu search trống
+            if (searchTerm === '') {
+                // Nếu pagination đang ẩn thì redirect lại trang gốc
+                if (pagination && pagination.hidden) {
+                    window.location.href = '../public/index.php?controller=service';
+                }
+                // Ngược lại thì không làm gì cả
+                return;
+            }
             
             // Ẩn pagination khi search
             if (pagination) {

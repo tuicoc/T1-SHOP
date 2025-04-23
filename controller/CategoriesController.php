@@ -34,11 +34,11 @@ class CategoriesController{
         $product_service = new ProductService();
 
         // Get total products count for the selected category
-        $totalProducts = $product_service->countProductsByCategory($currentCategoryIndex);
+        $totalProducts = $product_service->countProductsByCategory($currentCategory);
+        // var_dump($totalProducts);
 
         // Calculate total pages
         $totalPages = ceil($totalProducts / $productsPerPage);
-
 
         $products = [];
         if($currentPage == $totalPages){

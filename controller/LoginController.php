@@ -5,6 +5,7 @@ require_once(APP_ROOT.'/services/UserService.php');
 class LoginController{
     public function index(){
         if (session_status() === PHP_SESSION_NONE) {
+            ini_set('session.gc_maxlifetime', 0); 
             session_start();
         }
         include APP_ROOT.'/views/login/index.php'; 
@@ -12,6 +13,7 @@ class LoginController{
 
     public function signup() {
         if (session_status() === PHP_SESSION_NONE) {
+            ini_set('session.gc_maxlifetime', 0); 
             session_start();
         }
 
@@ -64,6 +66,7 @@ class LoginController{
     
     public function signin(){
         if (session_status() === PHP_SESSION_NONE) {
+            ini_set('session.gc_maxlifetime', 0); 
             session_start();
         }
 
@@ -92,6 +95,7 @@ class LoginController{
 
     public function logout() {
         if (session_status() === PHP_SESSION_NONE) {
+            ini_set('session.gc_maxlifetime', 0); 
             session_start();
         }
         session_unset();

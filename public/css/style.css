@@ -369,7 +369,7 @@ main {
 /******************* service *************************/
 
 .dataset-page {
-    padding: 40px;
+    padding-top: 40px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -467,7 +467,7 @@ main {
 /* Responsive */
 @media (max-width: 960px) {
     .dataset-page {
-        padding: 20px;
+        padding-top: 20px;
     }
 
     .categories {

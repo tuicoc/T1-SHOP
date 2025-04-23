@@ -1,6 +1,7 @@
 <?php 
 require_once('../config/config.php');
 if (session_status() === PHP_SESSION_NONE) {
+  ini_set('session.gc_maxlifetime', 0); 
     session_start();
 }
 ?>
@@ -16,9 +17,9 @@ if (session_status() === PHP_SESSION_NONE) {
   <meta name="author" content="Trần Xuân Bách">
   <title>Buddy</title>
   <link rel="icon" href="consultant.png" type="image">
-  <link rel="stylesheet" href="/mywebsite/public/css/style.css">
+  <link rel="stylesheet" href="/mywebsite/public/css/style.css?v=<?php echo time();?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <script src="/mywebsite/public/js/script.js"></script>
+  <script src="../public/js/script.js?v=<?php echo time();?>"></script>
 </head>
 <body>
 <header>

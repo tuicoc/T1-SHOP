@@ -4,6 +4,7 @@ require_once(APP_ROOT.'/services/ProductService.php');
 
 class ServiceController{
     public function index(){
+        var_dump(password_hash("admin", PASSWORD_DEFAULT));
 
         $productsPerPage = 9;
 

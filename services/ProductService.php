@@ -75,7 +75,7 @@ class ProductService{
         $dbconnection = new DBConnection();
         $conn = $dbconnection->getConnection();
     
-        $startIndex = ($currentPage - 1) * $productsPerPage;
+        $startIndex = ($currentPage - 1) * 9;
     
         // Xác định sorting
         switch ($sort) {

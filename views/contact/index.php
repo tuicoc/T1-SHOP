@@ -20,7 +20,7 @@ include APP_ROOT.'/views/shared/header.php';
               <a href="#" class="buy-now">VISIT NOW →</a>
           </div>
       </div>
-      <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64003.442051895865!2d106.51621890504262!3d10.89581418744974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d5a0f2bbf95d%3A0x82bb86613783bc0b!2sT1!5e0!3m2!1svi!2s!4v1743659050525!5m2!1svi!2s" width="600" height="395" style="border:0; flex: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64003.442051895865!2d106.51621890504262!3d10.89581418744974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d5a0f2bbf95d%3A0x82bb86613783bc0b!2sT1!5e0!3m2!1svi!2s!4v1743659050525!5m2!1svi!2s" style="width: 80vw; height: 400px; border:0; flex: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
    
     
